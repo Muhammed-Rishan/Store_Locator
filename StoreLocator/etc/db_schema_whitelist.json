@@ -1,0 +1,24 @@
+{
+    "storelocator_stores": {
+        "column": {
+            "store_id": true,
+            "name": true,
+            "address": true,
+            "postcode": true,
+            "city": true,
+            "state": true,
+            "country": true,
+            "phone": true,
+            "email": true,
+            "image_store": true,
+            "des": true,
+            "lat": true,
+            "lng": true,
+            "zoom": true,
+            "is_active": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
