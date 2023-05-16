@@ -6,7 +6,7 @@ use Codilar\StoreLocator\Api\StoreRepositoryInterface;
 use Codilar\StoreLocator\Controller\Adminhtml\Stores;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Cache\TypeListInterface;
-//use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
+use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\PageCache\Model\Config;
@@ -23,14 +23,14 @@ class Save extends Stores
         \Magento\Directory\Model\CountryFactory $countryFactory,
         StoreRepositoryInterface $storeRepository,
         StoreInterfaceFactory $storeFactory,
-//        ConfigHelper $configHelper,
+        ConfigHelper $configHelper,
         Config $config,
         TypeListInterface $typeList
     ) {
         $this->config = $config;
         $this->typeList = $typeList;
         $this->_countryFactory = $countryFactory;
-        parent::__construct($context, $resultPageFactory, $storeRepository, $storeFactory, );
+        parent::__construct($context, $resultPageFactory, $storeRepository, $storeFactory, $configHelper);
     }
 
     public function execute()

@@ -2,15 +2,11 @@
 
 namespace Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
-use \Codilar\StoreLocator\Controller\Adminhtml\MassAction;
-use \Magento\Backend\App\Action;
-use \Magento\Framework\Controller\ResultFactory;
-use \Magento\Framework\App\ResponseInterface;
+use Codilar\StoreLocator\Controller\Adminhtml\MassAction;
+use Magento\Framework\Controller\ResultFactory;
 
 class MassDelete extends MassAction
 {
-
-
     public function execute()
     {
         $collection = $this->filter->getCollection($this->storeCollectionFactory->create());

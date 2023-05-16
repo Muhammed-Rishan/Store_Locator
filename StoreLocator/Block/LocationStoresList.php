@@ -45,64 +45,64 @@ class LocationStoresList extends \Magento\Framework\View\Element\Template
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $model = $objectManager->create('Codilar\StoreLocator\Model\Store');
         $locations = $model->load($id);
-        $time = json_decode($locations->getTimeStore());
+//        $time = json_decode($locations->getTimeStore());
         $weekday = date("l");
         $weekday = strtolower($weekday);
         $weekday_time = $weekday . '_time';
         $weekday_time_today = [];
-        $weekday_time_today['today'] = $time->$weekday_time;
-        $weekday_time_today['time_today'] = $time->$weekday;
+//        $weekday_time_today['today'] = $time->$weekday_time;
+//        $weekday_time_today['time_today'] = $time->$weekday;
         return $weekday_time_today;
     }
-    public function getAllTimeStoreLocator($id)
-    {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $model = $objectManager->create('Codilar\StoreLocator\Model\Store');
-        $time_arr = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
-        $locations = $model->load($id);
-        $time = json_decode($locations->getTimeStore());
-        $weekday = date("l");
-        $weekday = strtolower($weekday);
-        $html = '';
-        foreach ($time_arr as $arr) {
-            $weekday_time = $arr . '_time';
-            if ($weekday == $arr) {
-                $html .=   '<div class="active"><span>' . $arr . '</span> <span>';
-            } else {
-                $html .=   '<div><span>' . $arr . '</span> <span>';
-            }
-
-            if ($time->$weekday_time == 0) {
-                $html .= '' . __('Closed') . '</span></div>';
-            } else {
-                if ($time->$arr->from->hours < 10) {
-                    $html .= '0' . $time->$arr->from->hours;
-                } else {
-                    $html .= $time->$arr->from->hours;
-                }
-                $html .= ' : ';
-                if ($time->$arr->from->minutes < 10) {
-                    $html .= '0' . $time->$arr->from->minutes;
-                } else {
-                    $html .= $time->$arr->from->minutes;
-                }
-                $html .= ' AM - ';
-                if ($time->$arr->to->hours < 10) {
-                    $html .= '0' . $time->$arr->to->hours;
-                } else {
-                    $html .= $time->$arr->to->hours;
-                }
-                $html .= ' : ';
-                if ($time->$arr->to->minutes < 10) {
-                    $html .= '0' . $time->$arr->to->minutes;
-                } else {
-                    $html .= $time->$arr->to->minutes;
-                }
-                $html .= ' PM </span></div>';
-            }
-        }
-        return $html;
-    }
+//    public function getAllTimeStoreLocator($id)
+//    {
+//        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//        $model = $objectManager->create('Codilar\StoreLocator\Model\Store');
+//        $time_arr = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+//        $locations = $model->load($id);
+//        $time = json_decode($locations->getTimeStore());
+//        $weekday = date("l");
+//        $weekday = strtolower($weekday);
+//        $html = '';
+//        foreach ($time_arr as $arr) {
+//            $weekday_time = $arr . '_time';
+//            if ($weekday == $arr) {
+//                $html .=   '<div class="active"><span>' . $arr . '</span> <span>';
+//            } else {
+//                $html .=   '<div><span>' . $arr . '</span> <span>';
+//            }
+//
+//            if ($time->$weekday_time == 0) {
+//                $html .= '' . __('Closed') . '</span></div>';
+//            } else {
+//                if ($time->$arr->from->hours < 10) {
+//                    $html .= '0' . $time->$arr->from->hours;
+//                } else {
+//                    $html .= $time->$arr->from->hours;
+//                }
+//                $html .= ' : ';
+//                if ($time->$arr->from->minutes < 10) {
+//                    $html .= '0' . $time->$arr->from->minutes;
+//                } else {
+//                    $html .= $time->$arr->from->minutes;
+//                }
+//                $html .= ' AM - ';
+//                if ($time->$arr->to->hours < 10) {
+//                    $html .= '0' . $time->$arr->to->hours;
+//                } else {
+//                    $html .= $time->$arr->to->hours;
+//                }
+//                $html .= ' : ';
+//                if ($time->$arr->to->minutes < 10) {
+//                    $html .= '0' . $time->$arr->to->minutes;
+//                } else {
+//                    $html .= $time->$arr->to->minutes;
+//                }
+//                $html .= ' PM </span></div>';
+//            }
+//        }
+//        return $html;
+//    }
     public function getApiKey()
     {
         $googleApiKey = $this->configHelper->getGoogleApiKeyFrontend();

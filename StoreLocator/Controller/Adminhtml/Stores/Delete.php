@@ -1,11 +1,10 @@
 <?php
 namespace Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
-use \Codilar\StoreLocator\Controller\Adminhtml\Stores;
+use Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
 class Delete extends Stores
 {
-
     public function execute()
     {
         $id = $this->getRequest()->getParam('store_id');

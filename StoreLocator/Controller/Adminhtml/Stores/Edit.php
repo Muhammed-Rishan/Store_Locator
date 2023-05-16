@@ -2,30 +2,29 @@
 
 namespace Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
-use \Codilar\StoreLocator\Controller\Adminhtml\Stores;
-use \Magento\Backend\App\Action\Context;
-use \Magento\Framework\View\Result\PageFactory;
-use \Codilar\StoreLocator\Api\StoreRepositoryInterface;
-//use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
-use \Magento\Framework\Registry;
-use \Codilar\StoreLocator\Api\Data\StoreInterfaceFactory;
+use Codilar\StoreLocator\Api\Data\StoreInterfaceFactory;
+use Codilar\StoreLocator\Api\StoreRepositoryInterface;
+use Codilar\StoreLocator\Controller\Adminhtml\Stores;
+use Magento\Backend\App\Action\Context;
+use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
+use Magento\Backend\Model\View\Result\Page;
+use Magento\Framework\Registry;
+use Magento\Framework\View\Result\PageFactory;
 
 class Edit extends Stores
 {
-
     protected $coreRegistry;
-
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         StoreRepositoryInterface $storeRepository,
         StoreInterfaceFactory $storeFactory,
-//        ConfigHelper $configHelper,
+        ConfigHelper $configHelper,
         Registry $registry
     ) {
         $this->coreRegistry = $registry;
-        parent::__construct($context, $resultPageFactory, $storeRepository, $storeFactory, );
+        parent::__construct($context, $resultPageFactory, $storeRepository, $storeFactory, $configHelper);
     }
 
     /**
@@ -33,9 +32,9 @@ class Edit extends Stores
      */
     public function execute()
     {
-//        if ($error = $this->checkGoogleApiKey()) {
-//            return $error;
-//        }
+        if ($error = $this->checkGoogleApiKey()) {
+            return $error;
+        }
 
         $id = $this->getRequest()->getParam('store_id');
         $store = $this->storeFactory->create();
@@ -63,7 +62,7 @@ class Edit extends Stores
 
         $this->coreRegistry->register('storelocator_store', $store);
 
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        /** @var Page $resultPage */
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
             $id ? __('Edit Store') : __('Add New Store'),

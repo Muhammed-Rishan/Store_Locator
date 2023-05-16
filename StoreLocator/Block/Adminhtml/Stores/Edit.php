@@ -1,15 +1,13 @@
 <?php
 namespace Codilar\StoreLocator\Block\Adminhtml\Stores;
 
-use \Magento\Backend\Block\Widget\Form\Container;
-use \Magento\Backend\Block\Widget\Context;
-use \Magento\Framework\Registry;
+use Magento\Backend\Block\Widget\Context;
+use Magento\Backend\Block\Widget\Form\Container;
+use Magento\Framework\Registry;
 
 class Edit extends Container
 {
-
     private $coreRegistry;
-
 
     public function __construct(
         Context $context,
@@ -19,7 +17,6 @@ class Edit extends Container
         $this->coreRegistry = $registry;
         parent::__construct($context, $data);
     }
-
 
     protected function _construct()
     {
@@ -48,7 +45,6 @@ class Edit extends Container
         );
         $this->buttonList->update('delete', 'label', __('Delete Store'));
     }
-
 
     public function getHeaderText()
     {
