@@ -1,7 +1,7 @@
 <?php
 namespace Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab;
 
-//use Codilar\StoreLocator\Block\Adminhtml\Stores\Helper\GoogleMap;
+use Codilar\StoreLocator\Block\Adminhtml\Stores\Helper\GoogleMap;
 use Codilar\StoreLocator\Model\Config\Source\Country;
 use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Block\Widget\Form\Generic;
@@ -53,17 +53,17 @@ class Map extends Generic
             ['legend' => __('Localization informations')]
         );
 
-//        $fieldset->addType('google_map', GoogleMap::class);
-//
-//        $fieldset->addField(
-//            'lat',
-//            'text',
-//            [
-//                'name'     => 'lat',
-//                'label'    => __('Latitude'),
-//                'required' => true
-//            ]
-//        );
+        $fieldset->addType('google_map', GoogleMap::class);
+
+        $fieldset->addField(
+            'lat',
+            'text',
+            [
+                'name'     => 'lat',
+                'label'    => __('Latitude'),
+                'required' => true
+            ]
+        );
 
         $fieldset->addField(
             'lng',
@@ -91,15 +91,15 @@ class Map extends Generic
                 'name' => 'store_search_by_address'
             ]
         );
-//        $fieldset->addField(
-//            'store_location',
-//            'google_map',
-//            [
-//                'name'  => 'store_location',
-//                'label' => __('Store Location'),
-//                'title' => __('Store Location')
-//            ]
-//        );
+        $fieldset->addField(
+            'store_location',
+            'google_map',
+            [
+                'name'  => 'store_location',
+                'label' => __('Store Location'),
+                'title' => __('Store Location')
+            ]
+        );
 
         $data = $model->getData();
         $form->setValues($data);

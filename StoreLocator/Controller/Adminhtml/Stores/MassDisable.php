@@ -2,13 +2,11 @@
 
 namespace Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
-use \Codilar\StoreLocator\Controller\Adminhtml\MassAction;
-use \Magento\Framework\Controller\ResultFactory;
-use \Magento\Framework\App\ResponseInterface;
+use Codilar\StoreLocator\Controller\Adminhtml\MassAction;
+use Magento\Framework\Controller\ResultFactory;
 
 class MassDisable extends MassAction
 {
-
     public function execute()
     {
         $collection = $this->filter->getCollection($this->storeCollectionFactory->create());

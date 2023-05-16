@@ -48,8 +48,8 @@ class StoresActions extends Column
                         'href' => $this->urlBuilder->getUrl(self::STORELOCATOR_URL_PATH_DELETE, ['store_id' => $item['store_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete "${ $.$data.title }"'),
-                            'message' => __('Are you sure you wan\'t to delete a "${ $.$data.title }" store?')
+                            'title' => __('Delete "data"'),
+                            'message' => __('Are you sure you wan\'t to delete a "data" store?')
                         ]
                     ];
                 }

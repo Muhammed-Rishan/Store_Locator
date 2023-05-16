@@ -139,7 +139,7 @@ class Info extends Generic
             [
                 'name'     => 'postcode',
                 'label'    => __('Zip Code'),
-                'required' => false
+                'required' => true
             ]
         );
 
