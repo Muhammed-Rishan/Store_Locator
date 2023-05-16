@@ -6,7 +6,7 @@ use \Codilar\StoreLocator\Controller\Adminhtml\Stores;
 use \Magento\Backend\App\Action\Context;
 use \Magento\Framework\View\Result\PageFactory;
 use \Codilar\StoreLocator\Api\StoreRepositoryInterface;
-//use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
+use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
 use \Magento\Backend\Model\View\Result\ForwardFactory;
 use \Codilar\StoreLocator\Api\Data\StoreInterfaceFactory;
 

@@ -1,32 +1,26 @@
 <?php
-/**
- * Copyright © 2019 Codilar. All rights reserved.
- */
-
 namespace Codilar\StoreLocator\Controller\Adminhtml\Stores;
 
-use \Codilar\StoreLocator\Controller\Adminhtml\Stores;
-use \Magento\Backend\App\Action\Context;
-use \Magento\Framework\View\Result\PageFactory;
-use \Magento\Framework\App\Filesystem\DirectoryList;
-use \Codilar\StoreLocator\Api\StoreRepositoryInterface;
+use Codilar\StoreLocator\Api\Data\StoreInterfaceFactory;
+use Codilar\StoreLocator\Api\StoreRepositoryInterface;
+use Codilar\StoreLocator\Controller\Adminhtml\Stores;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\App\Cache\TypeListInterface;
 //use \Codilar\StoreLocator\Helper\Config as ConfigHelper;
-use \Magento\PageCache\Model\Config;
-use \Magento\Framework\App\Cache\TypeListInterface;
-use \Codilar\StoreLocator\Api\Data\StoreInterfaceFactory;
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\View\Result\PageFactory;
+use Magento\PageCache\Model\Config;
 
 class Save extends Stores
 {
-
     private $config;
     private $typeList;
-	private $_countryFactory;
-
+    private $_countryFactory;
 
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-		\Magento\Directory\Model\CountryFactory $countryFactory,
+        \Magento\Directory\Model\CountryFactory $countryFactory,
         StoreRepositoryInterface $storeRepository,
         StoreInterfaceFactory $storeFactory,
 //        ConfigHelper $configHelper,
@@ -35,42 +29,41 @@ class Save extends Stores
     ) {
         $this->config = $config;
         $this->typeList = $typeList;
-		$this->_countryFactory = $countryFactory;
+        $this->_countryFactory = $countryFactory;
         parent::__construct($context, $resultPageFactory, $storeRepository, $storeFactory, );
     }
 
     public function execute()
     {
-		$time = json_encode($this->getRequest()->getPostValue('time'));
-		if(isset($_FILES)){
-			$img_arr = '';
-			if(isset($_FILES['image_stored']['error']) && $_FILES['image_stored']['error'] == '0'){
-				try {
-					$uploader = $this->_objectManager->create(
-						'Magento\Framework\File\Uploader',
-						['fileId' => 'image_stored']
-					);
-					$uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
-					$uploader->setAllowRenameFiles(true);
-					$uploader->setFilesDispersion(true);
-					$mediaDirectory = $this->_objectManager->get('Magento\Framework\Filesystem')
-						->getDirectoryRead(DirectoryList::MEDIA);
-					$path_ = 'image_stored/image';
-					$result = $uploader->save($mediaDirectory->getAbsolutePath($path_));
-					$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-					$img_arr = $path_.$result['file'];
-
-				} catch (\Exception $e) {
-				}
-				$dataImage = json_encode($img_arr);
-				$this->getRequest()->setPostValue('image_store', $dataImage);
-			}
-		}
-		$this->getRequest()->setPostValue('time_store', $time);
-		$country_code = $this->getRequest()->getPostValue('country');
-		$country = $this->_countryFactory->create()->loadByCode($country_code);
+        $time = json_encode($this->getRequest()->getPostValue('time'));
+        if (isset($_FILES)) {
+            $img_arr = '';
+            if (isset($_FILES['image_stored']['error']) && $_FILES['image_stored']['error'] == '0') {
+                try {
+                    $uploader = $this->_objectManager->create(
+                        'Magento\Framework\File\Uploader',
+                        ['fileId' => 'image_stored']
+                    );
+                    $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
+                    $uploader->setAllowRenameFiles(true);
+                    $uploader->setFilesDispersion(true);
+                    $mediaDirectory = $this->_objectManager->get('Magento\Framework\Filesystem')
+                        ->getDirectoryRead(DirectoryList::MEDIA);
+                    $path_ = 'image_stored/image';
+                    $result = $uploader->save($mediaDirectory->getAbsolutePath($path_));
+                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                    $img_arr = $path_ . $result['file'];
+                } catch (\Exception $e) {
+                }
+                $dataImage = json_encode($img_arr);
+                $this->getRequest()->setPostValue('image_store', $dataImage);
+            }
+        }
+        $this->getRequest()->setPostValue('time_store', $time);
+        $country_code = $this->getRequest()->getPostValue('country');
+        $country = $this->_countryFactory->create()->loadByCode($country_code);
         $country_name = $country->getName();
-		$this->getRequest()->setPostValue('country_name', $country_name);
+        $this->getRequest()->setPostValue('country_name', $country_name);
         $data = $this->getRequest()->getPostValue();
         if ($this->config->isEnabled()) {
             $this->typeList->invalidate('full_page');
