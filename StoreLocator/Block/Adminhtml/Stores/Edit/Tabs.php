@@ -3,7 +3,7 @@ namespace Codilar\StoreLocator\Block\Adminhtml\Stores\Edit;
 
 use \Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\Info;
 use \Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\Map;
-use \Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\TimeInfo;
+//use \Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\TimeInfo;
 
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {
@@ -35,17 +35,17 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
             ]
         );
 
-		$this->addTab(
-            'time_info',
-            [
-                'label' => __('Work Time'),
-                'title' => __('Work Time'),
-                'content' => $this->getLayout()->createBlock(
-                    TimeInfo::class
-                )->toHtml(),
-                'active' => false
-            ]
-        );
+//		$this->addTab(
+//            'time_info',
+//            [
+//                'label' => __('Work Time'),
+//                'title' => __('Work Time'),
+//                'content' => $this->getLayout()->createBlock(
+//                    TimeInfo::class
+//                )->toHtml(),
+//                'active' => false
+//            ]
+//        );
 
         $this->addTab(
             'map_info',
