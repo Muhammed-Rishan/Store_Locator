@@ -228,65 +228,7 @@ class Info extends Generic
             $model->setData('is_active', '1');
         }
 
-        if (isset($data['time_store'])) {
-            $time = json_decode($data['time_store']);
-            $selectField->setAfterElementHtml('
-				<script>
-					require([
-						"jquery"
-					], function($){
-						$(".monday .admin__select-time").val(' . $time->monday_time . ');
 
-						$(".monday .admin__field-control-to .from-hours").val(' . $time->monday->from->hours . ');
-						$(".monday .admin__field-control-to .from-minutes").val(' . $time->monday->from->minutes . ');
-						$(".monday .admin__field-control-to .to-hours").val(' . $time->monday->to->hours . ');
-						$(".monday .admin__field-control-to .to-minutes").val(' . $time->monday->to->minutes . ');
-
-						$(".tuesday .admin__select-time").val(' . $time->tuesday_time . ');
-
-						$(".tuesday .admin__field-control-to .from-hours").val(' . $time->tuesday->from->hours . ');
-						$(".tuesday .admin__field-control-to .from-minutes").val(' . $time->tuesday->from->minutes . ');
-						$(".tuesday .admin__field-control-to .to-hours").val(' . $time->tuesday->to->hours . ');
-						$(".tuesday .admin__field-control-to .to-minutes").val(' . $time->tuesday->to->minutes . ');
-
-						$(".wednesday .admin__select-time").val(' . $time->wednesday_time . ');
-
-						$(".wednesday .admin__field-control-to .from-hours").val(' . $time->wednesday->from->hours . ');
-						$(".wednesday .admin__field-control-to .from-minutes").val(' . $time->wednesday->from->minutes . ');
-						$(".wednesday .admin__field-control-to .to-hours").val(' . $time->wednesday->to->hours . ');
-						$(".wednesday .admin__field-control-to .to-minutes").val(' . $time->wednesday->to->minutes . ');
-
-						$(".thursday .admin__select-time").val(' . $time->thursday_time . ');
-
-						$(".thursday .admin__field-control-to .from-hours").val(' . $time->thursday->from->hours . ');
-						$(".thursday .admin__field-control-to .from-minutes").val(' . $time->thursday->from->minutes . ');
-						$(".thursday .admin__field-control-to .to-hours").val(' . $time->thursday->to->hours . ');
-						$(".thursday .admin__field-control-to .to-minutes").val(' . $time->thursday->to->minutes . ');
-
-						$(".friday .admin__select-time").val(' . $time->friday_time . ');
-
-						$(".friday .admin__field-control-to .from-hours").val(' . $time->friday->from->hours . ');
-						$(".friday .admin__field-control-to .from-minutes").val(' . $time->friday->from->minutes . ');
-						$(".friday .admin__field-control-to .to-hours").val(' . $time->friday->to->hours . ');
-						$(".friday .admin__field-control-to .to-minutes").val(' . $time->friday->to->minutes . ');
-
-						$(".sturday .admin__select-time").val(' . $time->saturday_time . ');
-
-						$(".sturday .admin__field-control-to .from-hours").val(' . $time->saturday->from->hours . ');
-						$(".sturday .admin__field-control-to .from-minutes").val(' . $time->saturday->from->minutes . ');
-						$(".sturday .admin__field-control-to .to-hours").val(' . $time->saturday->to->hours . ');
-						$(".sturday .admin__field-control-to .to-minutes").val(' . $time->saturday->to->minutes . ');
-
-						$(".sunday .admin__select-time").val(' . $time->sunday_time . ');
-
-						$(".sunday .admin__field-control-to .from-hours").val(' . $time->sunday->from->hours . ');
-						$(".sunday .admin__field-control-to .from-minutes").val(' . $time->sunday->from->minutes . ');
-						$(".sunday .admin__field-control-to .to-hours").val(' . $time->sunday->to->hours . ');
-						$(".sunday .admin__field-control-to .to-minutes").val(' . $time->sunday->to->minutes . ');
-					});
-				</script>
-			');
-        }
         $form->setValues($data);
         $this->setForm($form);
 
