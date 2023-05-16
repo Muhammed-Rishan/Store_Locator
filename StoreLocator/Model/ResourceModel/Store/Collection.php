@@ -1,9 +1,9 @@
 <?php
 namespace Codilar\StoreLocator\Model\ResourceModel\Store;
 
-use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use \Codilar\StoreLocator\Model\Store as Model;
-use \Codilar\StoreLocator\Model\ResourceModel\Store as ResourceModel;
+use Codilar\StoreLocator\Model\ResourceModel\Store as ResourceModel;
+use Codilar\StoreLocator\Model\Store as Model;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 class Collection extends AbstractCollection
 {

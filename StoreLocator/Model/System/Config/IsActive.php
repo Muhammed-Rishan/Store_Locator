@@ -1,8 +1,8 @@
 <?php
 namespace Codilar\StoreLocator\Model\System\Config;
 
-use \Magento\Framework\Option\ArrayInterface;
-use \Codilar\StoreLocator\Model\Source\IsActive as Source;
+use Codilar\StoreLocator\Model\Source\IsActive as Source;
+use Magento\Framework\Option\ArrayInterface;
 
 class IsActive implements ArrayInterface
 {
@@ -10,7 +10,6 @@ class IsActive implements ArrayInterface
      * @var Source
      */
     private $source;
-
 
     public function __construct(Source $source)
     {

@@ -2,10 +2,10 @@
 
 namespace Codilar\StoreLocator\Model\ResourceModel;
 
-use \Magento\Framework\Model\ResourceModel\Db\AbstractDb;
-use \Magento\Framework\Model\ResourceModel\Db\Context;
-use \Magento\Framework\Stdlib\DateTime\DateTime;
-use \Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+use Magento\Framework\Model\ResourceModel\Db\Context;
+use Magento\Framework\Stdlib\DateTime\DateTime;
 
 class Store extends AbstractDb
 {
