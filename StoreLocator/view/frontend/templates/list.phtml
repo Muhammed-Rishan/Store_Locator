@@ -33,16 +33,15 @@ $mediaUrl = $currentStore->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_
                 <?php if ($location->getAddress() && trim($location->getAddress())) { ?>
                     <div><?=/* @noEscape */ __('Address') ?>: <?= $block->escapeHtml($location->getAddress()); ?></div>
                 <?php }?>
+                <?php if ($location->getPhone() && trim($location->getPhone())) { ?>
+                    <div><?=/* @noEscape */ __('Phone') ?>: <?= $block->escapeHtml($location->getPhone()); ?></div>
+                <?php }?>
 
                 <div class="view-detail"><a href="
                 <?=/* @noEscape */ $block->getUrl('store-locator/store/view/key/' . $location->getId()) ?>">
                         <?=/* @noEscape */ __('View Detail') ?></a></div>
             </div>
-            <?php $time_today = $block->getTimeStoreLocator($location->getStoreId()) ?>
 
-            <div class="all_today_time" style="display:none;">
-                <?=/* @noEscape */ $block->getAllTimeStoreLocator($location->getStoreId()); ?>
-            </div>
         </div>
        <?php $i++?>
     <?php endforeach; ?>
