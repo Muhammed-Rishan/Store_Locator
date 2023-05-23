@@ -1,4 +1,5 @@
 <?php
+
 $locations = $block->getStoreLocator();
 $i = 1;
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -7,7 +8,7 @@ $currentStore = $storeManager->getStore();
 $mediaUrl = $currentStore->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
 ?>
 <div id="store_list">
-    <?php foreach ($locations as $location):?>
+    <?php foreach ($locations as $location): ?>
         <div class="list" name="mapLocation" data-id="<?=/* @noEscape */ $i ?>">
             <?php
             if ($location->getImageStore()) {
@@ -34,15 +35,14 @@ $mediaUrl = $currentStore->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_
                     <div><?=/* @noEscape */ __('Address') ?>: <?= $block->escapeHtml($location->getAddress()); ?></div>
                 <?php }?>
                 <?php if ($location->getPhone() && trim($location->getPhone())) { ?>
-                    <div><?=/* @noEscape */ __('Phone') ?>: <?= $block->escapeHtml($location->getPhone()); ?></div>
-                <?php }?>
+                    <div><?= /* @noEscape */ __('Phone') ?>: <?= $block->escapeHtml($location->getPhone()); ?></div>
+                <?php } ?>
 
                 <div class="view-detail"><a href="
                 <?=/* @noEscape */ $block->getUrl('store-locator/store/view/key/' . $location->getId()) ?>">
                         <?=/* @noEscape */ __('View Detail') ?></a></div>
             </div>
 
-        </div>
-       <?php $i++?>
+        <?php $i++ ?>
     <?php endforeach; ?>
 </div>

@@ -34,7 +34,7 @@ class Map extends Generic
      *
      * @return string
      */
-    public function getViewUrl($storeId)
+    public function getViewUrl(int $storeId): string
     {
         return $this->getUrl('storelocator/*/*', ['store_id' => $storeId]);
     }
@@ -42,7 +42,7 @@ class Map extends Generic
     /**
      * @return $this
      */
-    protected function _prepareForm()
+    protected function _prepareForm(): static
     {
         $model = $this->_coreRegistry->registry('storelocator_store');
 

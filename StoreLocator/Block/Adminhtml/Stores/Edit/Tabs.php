@@ -1,8 +1,13 @@
 <?php
+/**
+ * Copyright © 2023 Codilar. All rights reserved.
+ */
+
 namespace Codilar\StoreLocator\Block\Adminhtml\Stores\Edit;
 
 use Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\Info;
 use Codilar\StoreLocator\Block\Adminhtml\Stores\Edit\Tab\Map;
+use Magento\Framework\Exception\LocalizedException;
 
 class Tabs extends \Magento\Backend\Block\Widget\Tabs
 {
@@ -19,6 +24,8 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
 
     /**
      * {@inheritdoc}
+     * @throws LocalizedException
+     * @throws \Exception
      */
     protected function _beforeToHtml()
     {
@@ -33,6 +40,7 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
                 'active' => true
             ]
         );
+
 
         $this->addTab(
             'map_info',
