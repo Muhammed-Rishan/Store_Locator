@@ -13,12 +13,12 @@ class Info extends Generic
     /**
      * @var IsActive
      */
-    private $isActive;
+    private IsActive $isActive;
 
     /**
      * @var Country
      */
-    private $country;
+    private Country $country;
 
     public function __construct(
         Context $context,
@@ -41,7 +41,7 @@ class Info extends Generic
      *
      * @return string
      */
-    public function getViewUrl($storeId)
+    public function getViewUrl(int $storeId): string
     {
         return $this->getUrl('storelocator/*/*', ['store_id' => $storeId]);
     }
@@ -204,12 +204,17 @@ class Info extends Generic
         $after_element_html = '';
         if (isset($data['image_store'])) {
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+            $storeManager = $objectManager->
+            get('Magento\Store\Model\StoreManagerInterface');
             $currentStore = $storeManager->getStore();
-            $mediaUrl = $currentStore->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            $mediaUrl = $currentStore->
+            getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
             $image = json_decode($data['image_store']);
             if ($image) {
-                $after_element_html = '<div style="margin-top:15px;"><a href="' . $mediaUrl . $image . '" target="_blank"><image src="' . $mediaUrl . $image . '" style="max-width:250px;" /></a><div>';
+                $after_element_html = '<div style="margin-top:15px;">
+                <a href="' . $mediaUrl . $image . '" target="_blank">
+                <image src="' . $mediaUrl . $image . '" style="max-width:250px;" />
+                </a><div>';
             }
         }
         $fieldset->addField(

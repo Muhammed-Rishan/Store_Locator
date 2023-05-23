@@ -43,7 +43,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getIdentities()
     {
@@ -51,7 +51,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getName()
     {
@@ -59,7 +59,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getAddress()
     {
@@ -67,7 +67,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getCity()
     {
@@ -75,7 +75,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getState()
     {
@@ -83,7 +83,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getCountry()
     {
@@ -92,7 +92,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getPhone()
     {
@@ -100,7 +100,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getEmail()
     {
@@ -108,7 +108,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function isActive()
     {
@@ -116,7 +116,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function getCategoryName()
     {
@@ -125,7 +125,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setName($name)
     {
@@ -133,7 +133,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setAddress($address)
     {
@@ -141,7 +141,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setCity($city)
     {
@@ -149,7 +149,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setState($state)
     {
@@ -157,7 +157,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setCountry($country)
     {
@@ -165,7 +165,7 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setPhone($phone)
     {
@@ -173,19 +173,17 @@ class Store extends AbstractModel implements StoreInterface, IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     *
      */
     public function setEmail($email)
     {
         $this->setData(self::EMAIL, $email);
     }
     /**
-     * {@inheritdoc}
+     *
      */
     public function setIsActive($isActive)
     {
         $this->setData(self::IS_ACTIVE, $isActive);
     }
 }
-
-

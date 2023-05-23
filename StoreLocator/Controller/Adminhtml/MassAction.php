@@ -21,7 +21,7 @@ abstract class MassAction extends Action
     ) {
         $this->filter = $filter;
         $this->storeRepository = $storeRepository;
-        $this->categoryRepository= $categoryRepository;
+//        $this->categoryRepository= $categoryRepository;
         parent::__construct($context);
     }
 }

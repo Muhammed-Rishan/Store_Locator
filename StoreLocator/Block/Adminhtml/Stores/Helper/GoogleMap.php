@@ -13,7 +13,7 @@ class GoogleMap extends AbstractElement
     /**
      * @var ConfigHelper
      */
-    private $configHelper;
+    private ConfigHelper $configHelper;
 
     /**
      * @param Factory              $factoryElement
@@ -38,7 +38,7 @@ class GoogleMap extends AbstractElement
      *
      * @return string
      */
-    public function getElementHtml()
+    public function getElementHtml(): string
     {
         $googleApiKey = $this->configHelper->getGoogleApiKeyFrontend();
         $this->addClass('google-map admin__control-google-map');

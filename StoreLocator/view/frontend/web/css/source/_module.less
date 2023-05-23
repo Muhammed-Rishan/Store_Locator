@@ -1,0 +1,88 @@
+// Store Locator
+& when (@media-common = true) {
+    #locator_filter {
+        .column_left {
+            .block-content {
+                padding: 15px 15px;
+                margin-bottom: 20px;
+                background: #f8f8f8;
+                width: 100%;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                border: 1px solid @border-color__base;
+                #current-address {
+                    flex: 1;
+                }
+                input {
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+                .button {
+                    .lib-css(border-radius, 0 @form-element-input__border-radius @form-element-input__border-radius 0);
+                }
+            }
+            .location-information {
+                h2 {
+                    .lib-font-size(18);
+                }
+            }
+            .center {
+                overflow: auto;
+                height: 90vh;
+                max-height: 700px;
+                #store_list {
+                    .list {
+                        display: flex;
+                        margin-bottom: 15px;
+                        overflow: auto;
+                        font-size: 14px;
+                        background: #f6f6f6;
+                        cursor: pointer;
+                        flex-wrap: wrap;
+                        border: 1px solid @border-color__base;
+                        .image {
+                            flex: 0 0 40%;
+                            max-width: 150px;
+                            margin: 15px;
+                        }
+                        .location-information {
+                            flex: 1;
+                            margin: 15px;
+                            margin-left: 0;
+                            h2 {
+                                margin-bottom: 0.5rem;
+                                font-size: 1.6rem;
+                            }
+                            div {
+                                a {
+                                    font-weight: 500;
+                                    font-size: 1.8rem;
+                                    margin-bottom: 20px;
+                                }
+                            }
+                            .view-detail {
+                                a {
+                                    font-size: @font-size__base;
+                                    border-bottom: 1px solid;
+                                    &:not(:hover) {
+                                        color: @heading__color__base;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .bstlocator_input {
+                button {
+                    border-radius: 0;
+                }
+            }
+        }
+
+    }
+
+
+}
+

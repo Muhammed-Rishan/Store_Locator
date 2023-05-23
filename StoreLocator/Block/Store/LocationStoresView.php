@@ -1,12 +1,15 @@
 <?php
+/**
+ * Copyright © 2019 Codilar. All rights reserved.
+ */
 
-namespace Codilar\StoreLocator\Block;
+namespace Codilar\StoreLocator\Block\Store;
 
 use Codilar\StoreLocator\Helper\Config as ConfigHelper;
 use Codilar\StoreLocator\Model\ResourceModel\Store\CollectionFactory as StoreCollectionFactory;
 use Magento\Framework\Json\Helper\Data as DataHelper;
 
-class LocationStoresList extends \Magento\Framework\View\Element\Template
+class LocationStoresView extends \Magento\Framework\View\Element\Template
 {
     private $storeCollectionFactory;
     private $dataHelper;
@@ -28,20 +31,15 @@ class LocationStoresList extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
-    public function getStoreLocator()
+    public function getStoreViewLocator()
     {
-        $locations = $this->storeCollectionFactory->create();
-        $locationsArray = [];
-        foreach ($locations as $location) {
-            if ($location->getIsActive() == 1) {
-                $location->load($location->getId());
-                $locationsArray[] = $location;
-            }
-        }
-
-        return $locationsArray;
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $req = $objectManager->get('Magento\Framework\App\Request\Http');
+        $id = $req->getParam('key');
+        $model = $objectManager->create('Codilar\StoreLocator\Model\Store');
+        $locations = $model->load($id);
+        return $locations;
     }
-
 
     public function getApiKey()
     {
@@ -54,7 +52,18 @@ class LocationStoresList extends \Magento\Framework\View\Element\Template
     }
     public function getJsonLocations()
     {
-        $locations = $this->getStoreLocator();
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $req = $objectManager->get('Magento\Framework\App\Request\Http');
+        $id = $req->getParam('key');
+        $locations_model = $this->storeCollectionFactory->create();
+        $locationsArray = [];
+        foreach ($locations_model as $location) {
+            if ($location->getId() == $id) {
+                $location->load($location->getId());
+                $locationsArray[] = $location;
+            }
+        }
+        $locations = $locationsArray;
         $locationArray = [];
         $locationArray['items'] = [];
         foreach ($locations as $location) {
@@ -69,8 +78,7 @@ class LocationStoresList extends \Magento\Framework\View\Element\Template
     public function getBaloonTemplate()
     {
         $mediaUrl = $this->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
-        $url = $this->_storeManager->getStore()->getUrl('store-locator/store/view/');
-        $baloon = 	'<h2><div class="locator-title"><a href="' . $url . 'key/{{store_id}}">{{name}}</a></div></h2>
+        $baloon = '<h2><div class="locator-title">{{name}}</div></h2>
                     <div class="store">
 						<div class="image">
 							<img src="' . $mediaUrl . '{{image_store}}" />

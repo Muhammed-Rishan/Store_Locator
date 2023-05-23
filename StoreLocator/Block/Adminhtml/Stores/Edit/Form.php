@@ -3,12 +3,15 @@ namespace Codilar\StoreLocator\Block\Adminhtml\Stores\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 
+/**
+ *
+ */
 class Form extends Generic
 {
     /**
      * {@inheritdoc}
      */
-    protected function _prepareForm()
+    protected function _prepareForm(): Form|\Magento\Backend\Block\Widget\Form
     {
         $form = $this->_formFactory->create(
             [
