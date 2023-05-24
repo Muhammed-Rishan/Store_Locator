@@ -24,8 +24,8 @@
 			<div class="store_list"><?= $block->getChildHtml('store_list') ?></div>
 		</div>
     </div>
-	<div class="column_right" style="width: 67%;height: 80vh; max-height: 800px;padding-left: 15px;">
-		 <div id="bst-map-load" style="height: 100%"></div>
+	<div class="column_right" style="width: 100%;height: 80vh; max-height: 800px;padding-left: 15px;">
+		 <div id="bst-map-load" style="height: 70%; width: 100%;"></div>
     </div>
 </div>
 <script language="javascript" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo $block->getApiKey() ?>&libraries=places"></script>
@@ -42,8 +42,7 @@
         $('#bst-map-load').bstLocator({
             jsonLocations: <?php echo $this->getJsonLocations() ?>,
 			ajaxCallUrl: "<?php echo $this->getUrl('store-locator/index/ajax') ?>",
-			imageShop: "<?php echo $block->getViewFileUrl('Codilar_StoreLocator::images/shop.jpg'); ?>",
-            imageLocations: "<?php echo $block->getViewFileUrl('Codilar_StoreLocator::images/'); ?>"
+
         })
     });
 </script>
