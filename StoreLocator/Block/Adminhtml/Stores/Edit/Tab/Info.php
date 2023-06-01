@@ -233,7 +233,6 @@ class Info extends Generic
             $model->setData('is_active', '1');
         }
 
-
         $form->setValues($data);
         $this->setForm($form);
 
