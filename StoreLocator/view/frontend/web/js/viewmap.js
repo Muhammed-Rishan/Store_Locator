@@ -8,16 +8,16 @@ define([
         url: null,
         imageLocations: null,
 
-        _create: function () {
-            this.url = this.options.ajaxCallUrl;
-            this.imageLocations = this.options.imageLocations;
-            this.Mapload();
-            var self = this;
-
-            $( "body" ).on( "click", ".today_time", function() {
-                $(this).closest('.location').find('.all_today_time').toggle();
-            });
-        },
+        // _create: function () {
+        //     this.url = this.options.ajaxCallUrl;
+        //     this.imageLocations = this.options.imageLocations;
+        //     this.Mapload();
+        //     var self = this;
+        //
+        //     $( "body" ).on( "click", ".today_time", function() {
+        //         $(this).closest('.location').find('.all_today_time').toggle();
+        //     });
+        // },
 
         Mapload: function() {
             this.initializeMap();

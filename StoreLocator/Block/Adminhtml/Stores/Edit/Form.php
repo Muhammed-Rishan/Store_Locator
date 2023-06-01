@@ -11,7 +11,7 @@ class Form extends Generic
     /**
      * {@inheritdoc}
      */
-    protected function _prepareForm(): Form|\Magento\Backend\Block\Widget\Form
+    protected function _prepareForm()
     {
         $form = $this->_formFactory->create(
             [
